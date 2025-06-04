@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/ML_FLOW/1-MLFlow_Project/mlruns/0/6be17c2a10ad45499ece74bf75527a5d/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6be17c2a10ad45499ece74bf75527a5d
+run_name: able-kit-696
+run_uuid: 6be17c2a10ad45499ece74bf75527a5d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749039285402
+status: 1
+tags: []
+user_id: codespace

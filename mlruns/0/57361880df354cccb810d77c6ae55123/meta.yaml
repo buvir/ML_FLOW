@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/57361880df354cccb810d77c6ae55123/artifacts
+end_time: 1749040396379
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 57361880df354cccb810d77c6ae55123
+run_name: valuable-lamb-609
+run_uuid: 57361880df354cccb810d77c6ae55123
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749039891858
+status: 3
+tags: []
+user_id: codespace
