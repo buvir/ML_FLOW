@@ -159,4 +159,65 @@ See [requirements.txt](requirements.txt) for all dependencies.
 
 ---
 
+Github issue :
+This error occurs because you're trying to push a large file (model.pkl - 122.75MB) that exceeds GitHub's 100MB file size limit. Here's how to fix it:
+
+Solution 1: Use Git LFS (Recommended for ML Models)
+Install Git LFS:
+
+bash
+git lfs install
+Track your model files:
+
+bash
+git lfs track "*.pkl" "*.mlmodel" "*.h5"  # Add other model extensions as needed
+Remove the cached file and re-add:
+
+bash
+git rm --cached mlartifacts/0/57361880df354cccb810d77c6ae55123/artifacts/model/model.pkl
+git add .
+Commit and push:
+
+bash
+git commit -m "Add model files with LFS"
+git push origin main
+Solution 2: Exclude Large Files (Alternative)
+If you don't need the model in Git:
+
+Add to .gitignore:
+
+bash
+echo "mlartifacts/" >> .gitignore
+Remove the cached files:
+
+bash
+git rm --cached -r mlartifacts/
+Commit and push:
+
+bash
+git commit -m "Remove large model files"
+git push origin main
+Solution 3: For Existing Commits (Advanced)
+If the file is in your commit history:
+
+bash
+# Use BFG Repo Cleaner or git filter-branch
+git filter-repo --invert-paths --path mlartifacts/0/57361880df354cccb810d77c6ae55123/artifacts/model/model.pkl
+git push origin --force main
+Best Practices for ML Projects:
+Store models elsewhere:
+
+MLflow Tracking Server
+
+S3/GCS/Azure Blob Storage
+
+DVC (Data Version Control)
+
+Keep Git for code only:
+
+bash
+echo "mlruns/" >> .gitignore
+echo "mlartifacts/" >> .gitignore
+
+
 Happy Experimenting! 🚀
