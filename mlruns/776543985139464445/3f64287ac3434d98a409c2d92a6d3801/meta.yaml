@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/776543985139464445/3f64287ac3434d98a409c2d92a6d3801/artifacts
+end_time: 1749030787057
+entry_point_name: ''
+experiment_id: '776543985139464445'
+lifecycle_stage: active
+run_id: 3f64287ac3434d98a409c2d92a6d3801
+run_name: bemused-carp-771
+run_uuid: 3f64287ac3434d98a409c2d92a6d3801
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749030784280
+status: 3
+tags: []
+user_id: codespace

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/996485825557340361/ca4eedcb4e284e6eacb337fa7c73b568/artifacts
+end_time: 1749020463220
+entry_point_name: ''
+experiment_id: '996485825557340361'
+lifecycle_stage: active
+run_id: ca4eedcb4e284e6eacb337fa7c73b568
+run_name: ambitious-eel-612
+run_uuid: ca4eedcb4e284e6eacb337fa7c73b568
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749020463194
+status: 3
+tags: []
+user_id: codespace

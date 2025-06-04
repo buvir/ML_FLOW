@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/776543985139464445/2a59d8d9031d43698333bd4010249710/artifacts
+end_time: 1749026887712
+entry_point_name: ''
+experiment_id: '776543985139464445'
+lifecycle_stage: active
+run_id: 2a59d8d9031d43698333bd4010249710
+run_name: nervous-shrimp-540
+run_uuid: 2a59d8d9031d43698333bd4010249710
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749026885152
+status: 3
+tags: []
+user_id: codespace

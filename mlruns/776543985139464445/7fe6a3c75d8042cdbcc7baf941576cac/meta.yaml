@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/776543985139464445/7fe6a3c75d8042cdbcc7baf941576cac/artifacts
+end_time: 1749026346692
+entry_point_name: ''
+experiment_id: '776543985139464445'
+lifecycle_stage: active
+run_id: 7fe6a3c75d8042cdbcc7baf941576cac
+run_name: glamorous-grub-444
+run_uuid: 7fe6a3c75d8042cdbcc7baf941576cac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749026343077
+status: 3
+tags: []
+user_id: codespace

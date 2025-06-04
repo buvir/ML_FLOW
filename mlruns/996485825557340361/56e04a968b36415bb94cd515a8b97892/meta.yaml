@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/996485825557340361/56e04a968b36415bb94cd515a8b97892/artifacts
+end_time: 1749020187466
+entry_point_name: ''
+experiment_id: '996485825557340361'
+lifecycle_stage: active
+run_id: 56e04a968b36415bb94cd515a8b97892
+run_name: gifted-lamb-427
+run_uuid: 56e04a968b36415bb94cd515a8b97892
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749020187374
+status: 3
+tags: []
+user_id: codespace
