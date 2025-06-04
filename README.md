@@ -160,64 +160,129 @@ See [requirements.txt](requirements.txt) for all dependencies.
 ---
 
 Github issue :
-This error occurs because you're trying to push a large file (model.pkl - 122.75MB) that exceeds GitHub's 100MB file size limit. Here's how to fix it:
+## 🛠️ Handling Large Files in GitHub (ML Models, Artifacts)
 
-Solution 1: Use Git LFS (Recommended for ML Models)
-Install Git LFS:
+If you encounter errors like `file exceeds GitHub's 100MB file size limit`, follow these steps to clean your repo and avoid future issues.
 
-bash
+---
+
+### 🧹 Method 1: Remove Large Files from Git History (Recommended for Existing Repos)
+
+#### **Step 1: Install git-filter-repo**
+
+If you're on Ubuntu/Debian (or Codespaces):
+
+```bash
+pip install git-filter-repo
+```
+
+Make it globally available:
+
+```bash
+sudo ln -s $(python3 -m site --user-base)/bin/git-filter-repo /usr/local/bin/git-filter-repo
+```
+
+Or run with full path if needed:
+
+```bash
+~/.local/bin/git-filter-repo ...
+```
+
+#### **Step 2: Remove the Large File(s) from History**
+
+To remove all `mlartifacts/` files from your entire git history:
+
+```bash
+git filter-repo --path mlartifacts/ --invert-paths --force
+```
+
+#### **Step 3: Recommit and Push**
+
+Add `.gitignore` if needed:
+
+```bash
+echo "mlartifacts/" >> .gitignore
+git add .gitignore
+git commit -m "Remove large files and ignore mlartifacts"
+```
+
+Push forcefully:
+
+```bash
+git push origin main --force
+```
+
+#### **Step 4: Re-add GitHub Remote (if needed)**
+
+If you see `fatal: 'origin' does not appear to be a git repository`, re-add your remote:
+
+```bash
+git remote add origin https://github.com/buvir/ML_FLOW.git
+git push origin main --force
+```
+
+---
+
+### 💡 Method 2: Use Git LFS (Large File Storage) for Model Files
+
+#### **Step 1: Install Git LFS**
+
+```bash
 git lfs install
-Track your model files:
+```
 
-bash
-git lfs track "*.pkl" "*.mlmodel" "*.h5"  # Add other model extensions as needed
-Remove the cached file and re-add:
+#### **Step 2: Track Model Files**
 
-bash
+```bash
+git lfs track "*.pkl" "*.mlmodel" "*.h5"
+```
+
+#### **Step 3: Remove Cached File and Re-add**
+
+```bash
 git rm --cached mlartifacts/0/57361880df354cccb810d77c6ae55123/artifacts/model/model.pkl
 git add .
-Commit and push:
-
-bash
 git commit -m "Add model files with LFS"
 git push origin main
-Solution 2: Exclude Large Files (Alternative)
-If you don't need the model in Git:
+```
 
-Add to .gitignore:
+---
 
-bash
+### 🛑 Method 3: Exclude Large Files from Git (If You Don't Need Them in Git)
+
+#### **Step 1: Add to .gitignore**
+
+```bash
 echo "mlartifacts/" >> .gitignore
-Remove the cached files:
+```
 
-bash
+#### **Step 2: Remove Cached Files**
+
+```bash
 git rm --cached -r mlartifacts/
-Commit and push:
-
-bash
+git add .gitignore
 git commit -m "Remove large model files"
 git push origin main
-Solution 3: For Existing Commits (Advanced)
-If the file is in your commit history:
+```
 
-bash
-# Use BFG Repo Cleaner or git filter-branch
-git filter-repo --invert-paths --path mlartifacts/0/57361880df354cccb810d77c6ae55123/artifacts/model/model.pkl
-git push origin --force main
-Best Practices for ML Projects:
-Store models elsewhere:
+---
 
-MLflow Tracking Server
+### 🏆 Best Practices for ML Projects
 
-S3/GCS/Azure Blob Storage
+- **Store models and artifacts outside Git:**  
+  - MLflow Tracking Server  
+  - S3/GCS/Azure Blob Storage  
+  - DVC (Data Version Control)
 
-DVC (Data Version Control)
+- **Keep Git for code only:**
 
-Keep Git for code only:
-
-bash
+```bash
 echo "mlruns/" >> .gitignore
 echo "mlartifacts/" >> .gitignore
+```
 
+---
+
+> **Tip:** Always check your repo size before pushing and avoid committing large files directly to GitHub.
 
 Happy Experimenting! 🚀
